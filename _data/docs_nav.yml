@@ -1,0 +1,9 @@
+- title: a
+  docs:
+    - link: /a/
+- title: b
+  docs:
+    - link: /b/
+    - title: 1
+      docs:
+        - link: /b/1/

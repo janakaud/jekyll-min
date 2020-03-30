@@ -1,0 +1,22 @@
+{% assign section=include.nav %}
+<div class="ui accordion">
+    <div class="title active">
+        <i class="dropdown icon"></i>
+        {{ section.title }}
+    </div>
+    <div class="content active">
+        <div class="ui vertical text menu">
+            {% for item in section.docs %}
+            {% if item.link %}
+            {%- assign p = site.documents | where: "url", item.link | first %}
+            <a {%- if page.url== p.url %} class="current item" {% endif %} class="item" href="{{ p.url }}">
+                {{ p.menu_name | default: p.title }}
+            </a>
+            {% endif %}
+            {% if item.docs %}
+            {% include nav.html nav=item %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
